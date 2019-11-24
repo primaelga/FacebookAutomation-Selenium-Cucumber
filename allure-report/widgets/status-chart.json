@@ -1,0 +1,11 @@
+[ {
+  "uid" : "f57ef117ac2003e6",
+  "name" : "as a user I want to register account on facebook",
+  "time" : {
+    "start" : 1574634740819,
+    "stop" : 1574634763503,
+    "duration" : 22684
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

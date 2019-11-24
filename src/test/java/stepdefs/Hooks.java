@@ -1,0 +1,32 @@
+package stepdefs;
+
+import java.io.IOException;
+
+import com.facebook.automation.FacebookAutomation.environment.BaseTest;
+import com.facebook.automation.FacebookAutomation.logger.Log;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+
+public class Hooks implements BaseTest {
+
+    @After()
+    public void afterScenario(Scenario scenario) throws IOException {
+
+        if (scenario.isFailed()) {
+            Log.ERROR("Scenario: " + scenario.getName() + " failed");
+        } else {
+            Log.INFO("Scenario: " + scenario.getName() + " passed");
+        }
+
+       // browser.attachSnapshotToReport();
+        browser.closeDriver();
+    }
+
+	@Before()
+	public void beforeScenario(Scenario scenario) throws IOException {	    
+		Log.INFO("Scenario: " + scenario.getName() + " started");
+		browser.printDesktopConfiguration();
+	}
+}
